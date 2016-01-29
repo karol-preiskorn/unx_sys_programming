@@ -62,6 +62,15 @@ Usage: ./unx_sys_programming [-r] [-w]
 
 ## Przykład użycia
 
+
+```
+./unx_sys_programming
+
+```
+
+lub
+
+
 ```
 ./unx_sys_programming -r
 ./unx_sys_programming -w
