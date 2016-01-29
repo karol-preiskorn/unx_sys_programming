@@ -47,10 +47,12 @@ Input option value=(null) set program to write to FIFO[23:30:20](pid 17411) DEBU
 [10]   Done                    ./unx_sys_programming -r
 karol@carlo:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h
 
-Program FIFO
-------------
+## Program FIFO
+
 Program bez argumentów tworzy named pipe a w procesie potomnym zapisuje do niego dane.
+
 Program mozna wywołać z argumentami tak aby działał jako odczyt (r) z pipe lub zapis do pipe (w).
+
 Zapisywane są do pipe couner, PID i curenttime.
 
 Usage: ./unx_sys_programming [-r] [-w]
