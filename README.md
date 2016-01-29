@@ -15,6 +15,7 @@ Napisz program, który zbiera komunikaty od wielu programów i wyświetla je na 
 
 ### Zrzut z działania:
 
+```
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 73 - while1
 
 karol@carlo:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -w
@@ -74,6 +75,7 @@ Input option value=(null) set program to write to FIFO
 [10]   Done                    ./unx_sys_programming -r
 
 *:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h*
+```
 
 ## Program FIFO
 
