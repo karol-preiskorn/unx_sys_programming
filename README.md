@@ -14,7 +14,7 @@ Napisz program, który zbiera komunikaty od wielu programów i wyświetla je na 
 * A: flush? (do sprawdzenia).
 
 Zrzut z działania:
-
+`
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 73 - while1
 
 karol@carlo:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -w
@@ -74,7 +74,7 @@ Input option value=(null) set program to write to FIFO
 
 
 :~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h
-
+`
 ## Program FIFO
 
 Program bez argumentów tworzy named pipe a w procesie potomnym zapisuje do niego dane.
