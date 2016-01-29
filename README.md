@@ -13,8 +13,8 @@ Napisz program, który zbiera komunikaty od wielu programów i wyświetla je na 
 * Q: Jak zapewnić to, że komunikaty pochodzące od różnych programów wyświetlane są w całości, tzn. nie są rozdzielane  komunikatami od innych programów?
 * A: flush? (do sprawdzenia).
 
-Zrzut z działania:
-`
+### Zrzut z działania:
+
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 73 - while1
 
 karol@carlo:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -w
@@ -62,6 +62,7 @@ Input option value=(null) set program to write to FIFO
 [23:30:20](pid 17411) DEBUG: Passed wrfifo 174 : client succesed write to pipe: #8 test PID: 17411: text -> Thu Jan 28 23:36:10 2016
 
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 107 : reader reads record: #8 test PID: 17411: text -> Thu Jan 28 23:36:10 2016
+
 [23:30:20](pid 17411) DEBUG: Passed wrfifo 174 : client succesed write to pipe: #9 test PID: 17411: text -> Thu Jan 28 23:36:11 2016
 
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 107 : reader reads record: #9 test PID: 17411: text -> Thu Jan 28 23:36:11 2016
@@ -72,9 +73,8 @@ Input option value=(null) set program to write to FIFO
 
 [10]   Done                    ./unx_sys_programming -r
 
+*:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h*
 
-:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h
-`
 ## Program FIFO
 
 Program bez argumentów tworzy named pipe a w procesie potomnym zapisuje do niego dane.
