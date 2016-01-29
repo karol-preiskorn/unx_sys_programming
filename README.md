@@ -2,7 +2,7 @@
 
 
 
-# Uzupełnij program shell z o „ręczną” obsługę potoków.
+## Uzupełnij program shell z o „ręczną” obsługę potoków.
 
 Napisz program, który zbiera komunikaty od wielu programów i wyświetla je na ekranie. Do komunikacji użyj potoku nazwanego. Wskazówka: Utwórz program rdfifo, którego zadaniem jest utworzenie kolejki FIFO i czytanie z niej danych.
 
