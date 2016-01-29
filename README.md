@@ -19,12 +19,20 @@ Zrzut z działania:
 
 karol@carlo:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -w
 
-Input option value=(null) set program to write to FIFO[23:30:20](pid 17411) DEBUG: Passed wrfifo 148 : mkfifo exist: 17
+Input option value=(null) set program to write to FIFO
+
+[23:30:20](pid 17411) DEBUG: Passed wrfifo 148 : mkfifo exist: 17
+
 [23:30:20](pid 17411) DEBUG: Passed wrfifo 157 - pipe opened to read-write
+
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 104 - Remove FIFO
+
 [23:30:20](pid 17411) DEBUG: Passed wrfifo 174 : client succesed write to pipe: #0 test PID: 17411: text -> Thu Jan 28 23:36:02 2016
+
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 107 : reader reads record: #0 test PID: 17411: text -> Thu Jan 28 23:36:02 2016
+
 [23:30:20](pid 17411) DEBUG: Passed wrfifo 174 : client succesed write to pipe: #1 test PID: 17411: text -> Thu Jan 28 23:36:03 2016
+
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 107 : reader reads record: #1 test PID: 17411: text -> Thu Jan 28 23:36:03 2016
 [23:30:20](pid 17411) DEBUG: Passed wrfifo 174 : client succesed write to pipe: #2 test PID: 17411: text -> Thu Jan 28 23:36:04 2016
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 107 : reader reads record: #2 test PID: 17411: text -> Thu Jan 28 23:36:04 2016
