@@ -60,6 +60,15 @@ Zapisywane są do pipe couner, PID i curenttime.
 Usage: ./unx_sys_programming [-r] [-w]
 ```
 
+## Przykład użycia
+
+```
+./unx_sys_programming -r
+./unx_sys_programming -w
+./unx_sys_programming -w
+./unx_sys_programming -w
+```
+
 # Fork read environ - zadania
 
 * z1: Napisz program, który pokazuje, które atrybuty procesu macierzystego są dziedziczone przez proces potomny  uruchomiony za pomocą funkcji fork(), które zaś otrzymują nową wartość.
