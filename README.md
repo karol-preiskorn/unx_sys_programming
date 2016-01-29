@@ -20,7 +20,8 @@ Napisz program, który zbiera komunikaty od wielu programów i wyświetla je na 
 * z2: Napisz program, który pokazuje, które atrybuty procesu są zachowane przez proces po wykonaniu funkcji exec().
 * z3: Napisz program, który wyświetla identyfikator procesu (PID) i nazwę związanego z nim polecenia dla wszystkich procesów uruchomionych przez użytkownika podanego w wierszu wywołania programu. Wskazówka: informacje te można uzyskać przeglądając katalog /proc z plików (interesują nas katalogi, których właścicielem jest dany  użytkownik) i pliki /proc/PID/status
  
- * Każdy proces charakteryzuje się pewnymi atrybutami. Należą do nich:
+Każdy proces charakteryzuje się pewnymi atrybutami. Należą do nich
+
  * Identyfikator procesu PID
  * Identyfikator procesu macierzystego PPID
  * Rzeczywisty identyfikator właściciela procesu
