@@ -50,21 +50,17 @@ Input option value=(null) set program to write to FIFO
 
 [10]   Done                    ./unx_sys_programming -r
 
-*:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h*
-```
+bash:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h
 
-## Program FIFO
-
+Program FIFO
 Program bez argumentów tworzy named pipe a w procesie potomnym zapisuje do niego dane.
-
 Program mozna wywołać z argumentami tak aby działał jako odczyt (r) z pipe lub zapis do pipe (w).
-
 Zapisywane są do pipe couner, PID i curenttime.
 
 Usage: ./unx_sys_programming [-r] [-w]
+```
 
-
-## Fork/environ Zadania
+# Fork read environ - zadania
 
 * z1: Napisz program, który pokazuje, które atrybuty procesu macierzystego są dziedziczone przez proces potomny  uruchomiony za pomocą funkcji fork(), które zaś otrzymują nową wartość.
 * z2: Napisz program, który pokazuje, które atrybuty procesu są zachowane przez proces po wykonaniu funkcji exec().
