@@ -1,21 +1,20 @@
-# README #
+# 📚 README
 
+## 🔌 Complete a shell program with "manual" handling of pipes
 
+This program that collects messages from multiple programs and displays them on the screen. Use a named pipe for communication. 💡 **Hint:** Create an `rdfifo` program whose task is to create a FIFO queue and read data from it.
 
-## Uzupełnij program shell z o „ręczną” obsługę potoków.
+**❓ FAQ:**
 
-Napisz program, który zbiera komunikaty od wielu programów i wyświetla je na ekranie. Do komunikacji użyj potoku nazwanego. Wskazówka: Utwórz program rdfifo, którego zadaniem jest utworzenie kolejki FIFO i czytanie z niej danych.
+| Question                                                                                                                        | Answer                                        |
+|---------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| How will you pass the common name of the FIFO queue to these programs?                                                          | Through a static variable                     |
+| How to ensure that the program collecting messages works even when there is no program writing to the link?                     | Through an infinite loop process with `sleep` |
+| How to ensure that messages from different programs are displayed in full, i.e., not separated by messages from other programs? | `flush`? (to be verified)                     |
 
-* Q: W jaki sposób przekażesz wspólną nazwę kolejki FIFO do tych programów?
-* A: przez zmienną statyczą
-* Q: W jaki sposób zapewnić działanie programu zbierającego komunikaty również wtedy, kiedy nie ma programu piszącego do łącza?
-* A: przez proces pętli nieskończonej ze sleep
-* Q: Jak zapewnić to, że komunikaty pochodzące od różnych programów wyświetlane są w całości, tzn. nie są rozdzielane  komunikatami od innych programów?
-* A: flush? (do sprawdzenia).
+### 📤 Output sample
 
-### Zrzut z działania:
-
-```
+```bash
 [23:30:20](pid 17400) DEBUG: Passed rdfifo 73 - while1
 
 karol@carlo:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -w
@@ -52,57 +51,90 @@ Input option value=(null) set program to write to FIFO
 
 bash:~/eclipse-workspaces/unx_sys_programming/Debug$ ./unx_sys_programming -h
 
-Program FIFO
-Program bez argumentów tworzy named pipe a w procesie potomnym zapisuje do niego dane.
-Program mozna wywołać z argumentami tak aby działał jako odczyt (r) z pipe lub zapis do pipe (w).
-Zapisywane są do pipe couner, PID i curenttime.
+FIFO Program
+A program without arguments creates a named pipe and writes data to it in a child process.
+The program can be called with arguments so it works as read (r) from pipe or write to pipe (w).
+A counter, PID and current time are written to the pipe.
 
 Usage: ./unx_sys_programming [-r] [-w]
 ```
 
-## Przykład użycia
+## 🚀 Usage example
 
+**Basic usage:**
 
-```
+```bash
 ./unx_sys_programming
-
 ```
 
-lub
+**Or use with multiple processes:**
 
-
-```
+```bash
 ./unx_sys_programming -r
 ./unx_sys_programming -w
 ./unx_sys_programming -w
 ./unx_sys_programming -w
 ```
 
-# Fork read environ - zadania
+# 🔀 Fork read environment - Tasks
 
-* z1: Napisz program, który pokazuje, które atrybuty procesu macierzystego są dziedziczone przez proces potomny  uruchomiony za pomocą funkcji fork(), które zaś otrzymują nową wartość.
-* z2: Napisz program, który pokazuje, które atrybuty procesu są zachowane przez proces po wykonaniu funkcji exec().
-* z3: Napisz program, który wyświetla identyfikator procesu (PID) i nazwę związanego z nim polecenia dla wszystkich procesów uruchomionych przez użytkownika podanego w wierszu wywołania programu. Wskazówka: informacje te można uzyskać przeglądając katalog /proc z plików (interesują nas katalogi, których właścicielem jest dany  użytkownik) i pliki /proc/PID/status
- 
-Każdy proces charakteryzuje się pewnymi atrybutami. Należą do nich
+## Task Definitions
 
- * Identyfikator procesu PID
- * Identyfikator procesu macierzystego PPID
- * Rzeczywisty identyfikator właściciela procesu
- * Rzeczywisty identyfikator grupy procesu
- * Efektywny identyfikator właściciela procesu
- * Efektywny identyfikator grupy procesu
- * Katalog bieżący i katalog główny
- * Maska tworzenia pliku
- * Identyfikator sesji
- * Terminal sterujący
- * Deskryptory otwartych plików
- * Ustalenia dotyczące obsługi sygnałów
- * Ustawienia zmiennych środowiskowych
- * Ograniczenia zasobów
- 
-Potomek dziedziczy z procesu potomnego wiele własności: rzeczywisty identyfikator użytkownika, rzeczywisty identyfikator grupy, obowiązujący identyfikator użytkownika, obowiązujący identyfikator grupy, identyfikatory dodatkowych grup, identyfikator sesji, terminal sterujący, sygnalizator ustanowienia identyfikatora użytkownika oraz sygnalizator ustanowienia identyfikatora grupy, deskryptory otwartych plików (są kopiowane) bieżący katalog roboczy, katalog główny,
- maskę tworzenia plików, maskę sygnałów oraz dyspozycje obsługi sygnałów, sygnalizator zamykania przy wywołaniu funkcji exec (close-on-exec) dla wszystkich otwartych deskryptorów plików, środowisko, przyłączone segmenty pamięci wspólnej,
- ograniczenia zasobów systemowych. Są jednak pewne różnice między procesem macierzystym a potomnym:
- wartość powrotu z funkcji fork, różne identyfikatory procesów, inne identyfikatory procesów macierzystych - w procesie potomnym jest to identyfikator procesu macierzystego; w procesie macierzystym identyfikator procesu macierzystego nie zmienia się, w procesie potomnym wartości tms_utime, tms_cutime i tms_ustime są równe 0,
- potomek nie dziedziczy rygli plików, ustalonych w procesie macierzystym, w procesie potomnym są zerowane wszystkie zaległe alarmy, w procesie potomnym jest zerowany zbiór zaległych sygnałów.
+- **z1:** 📝 Write a program that shows which attributes of the parent process are inherited by the child process started with the `fork()` function, and which receive new values.
+
+- **z2:** 📝 Write a program that shows which process attributes are preserved after the `exec()` function is executed.
+
+- **z3:** 📝 Write a program that displays the process identifier (PID) and the name of the associated command for all processes started by the user specified in the program's call line.
+
+💡 **Hint:** This information can be obtained by browsing the `/proc` directory from files (we are interested in directories whose owner is the given user) and the `/proc/PID/status` files
+
+## 📋 Process Attributes
+
+Each process is characterized by certain attributes:
+
+| Attribute          | Description                                    |
+|--------------------|------------------------------------------------|
+| 🆔 PID              | Process identifier                             |
+| 👨‍👩‍👧 PPID             | Parent process identifier                      |
+| 👤 Real UID         | Real user identifier of the process owner      |
+| 👥 Real GID         | Real process group identifier                  |
+| ⚡ Effective UID    | Effective user identifier of the process owner |
+| ⚡ Effective GID    | Effective process group identifier             |
+| 📂 Directories      | Current directory and root directory           |
+| 🔐 File mask        | File creation mask                             |
+| 🔌 Session ID       | Session identifier                             |
+| 💻 Terminal         | Controlling terminal                           |
+| 📁 File descriptors | Descriptors of open files                      |
+| 📢 Signal handling  | Signal handling settings                       |
+| 🌍 Environment      | Environment variable settings                  |
+| 💾 Resources        | Resource limits
+
+## 🧬 Process Inheritance & Differences
+
+### Inherited Properties
+
+The child process inherits many properties from the parent process:
+
+- Real user identifier, real group identifier
+- Effective user identifier, effective group identifier
+- Additional group identifiers
+- Session identifier, controlling terminal
+- User ID set signal and group ID set signal
+- Open file descriptors (they are copied)
+- Current working directory, root directory
+- File creation mask, signal mask and signal handling dispositions
+- Close-on-exec flag for all open file descriptors
+- Environment, attached shared memory segments
+- System resource limits
+
+### Key Differences
+
+However, there are certain differences between the parent and child processes:
+
+1. **Return value** from `fork()` - different in parent vs child
+2. **Process identifiers** - each process gets a unique PID
+3. **Parent process identifiers** - in the child process this is the parent's PID; in the parent process the PPID doesn't change
+4. **Timing values** - in the child process, `tms_utime`, `tms_cutime` and `tms_ustime` are equal to 0
+5. **File locks** - the child does not inherit file locks established in the parent process
+6. **Pending alarms** - in the child process, all pending alarms are zeroed
+7. **Pending signals** - in the child process, the set of pending signals is zeroed
